@@ -24,10 +24,7 @@ function Manager() {
     fetchData();
   }, []);
 
-  console.log(data);
-  console.log(loading);
-
-  return <div>Manager</div>;
+  return <div>{/* fsdf */}</div>;
 }
 
 //We should use a component for displaying the characters
