@@ -6,6 +6,9 @@ module.exports = {
       colors: {
         "green-rick": "#97ce4c",
         "yellow-rick": "#f0e14a",
+        "brown-rick": "#44281d",
+        "pink-rick": "#e4a788",
+        "purple-rick": "#e89ac7",
       },
     },
   },

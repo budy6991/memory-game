@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import DisplayCharacters from "./DisplayCharacters";
+import NavBar from "./NavBar";
+import LoadingPage from "./LoadingPage";
 
 function Manager() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
-  const [length, setLength] = useState(8);
+  const [length, setLength] = useState(12);
 
   useEffect(() => {
     const randomCharacters = Array.from({ length: length }, () =>
@@ -26,13 +28,15 @@ function Manager() {
     fetchData();
   }, []);
 
-  return (
-    <div>
-      <DisplayCharacters characters={data} />
-    </div>
-  );
+  if (loading) {
+    return <LoadingPage />;
+  } else
+    return (
+      <div>
+        <NavBar />
+        <DisplayCharacters characters={data} />
+      </div>
+    );
 }
-
-//We should use a component for displaying the characters
 
 export default Manager;
