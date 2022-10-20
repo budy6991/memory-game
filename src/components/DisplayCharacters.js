@@ -1,12 +1,15 @@
 import React from "react";
+import CharacterCard from "./CharacterCard";
 
 function DisplayCharacters({ characters }) {
   const charactersCard = characters.map((character) => {
     return (
-      <button className="m-2 hover:scale-90 transition-all h-fit w-fit">
-        <img src={character.image} className="rounded-lg"></img>
-        <h2>{character.name}</h2>
-      </button>
+      <CharacterCard
+        name={character.name}
+        image={character.image}
+        key={character.id}
+        id={character.id}
+      />
     );
   });
   return <div className="h-fit w-fit">{charactersCard};</div>;
