@@ -11,7 +11,6 @@ function Manager() {
   const [record, setRecord] = useState(0);
 
   // If a card has been clicked more than twice, restart the game.
-  // If all the cards has been clicked once,
 
   useEffect(() => {
     const randomCharacters = Array.from({ length: length }, () =>
@@ -33,13 +32,24 @@ function Manager() {
     fetchData();
   }, []);
 
-  const getCounterClick = (clicks, id) => {
-    data.filter((character) => {
-      if (character.id === id) {
-        character.clicks = clicks;
-      } else return character;
-    });
+  const shuffleArray = () => {
+    setData(data.sort(() => 0.5 - Math.random()));
+  };
+
+  useEffect(() => {
+    shuffleArray();
     console.log(data);
+  }, [data]);
+
+  const getCounterClick = (clicks, id) => {
+    setData(
+      data.filter((character) => {
+        if (character.id === id) {
+          character.clicks = clicks;
+        }
+        return character;
+      })
+    );
   };
 
   if (loading) {
