@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function CharacterCard({ name, image, clickCounter }) {
+function CharacterCard({ name, image, clickCounter, id }) {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ function CharacterCard({ name, image, clickCounter }) {
       className="m-2 hover:scale-90 transition-all h-fit w-fit"
       onClick={() => {
         increaseCounter();
-        clickCounter(counter, name);
+        clickCounter(counter, id);
       }}
     >
       <img src={image} className="rounded-lg"></img>

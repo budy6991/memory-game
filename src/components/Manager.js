@@ -10,6 +10,9 @@ function Manager() {
   const [score, setScore] = useState(0);
   const [record, setRecord] = useState(0);
 
+  // If a card has been clicked more than twice, restart the game.
+  // If all the cards has been clicked once,
+
   useEffect(() => {
     const randomCharacters = Array.from({ length: length }, () =>
       Math.floor(Math.random() * 826)
@@ -30,8 +33,13 @@ function Manager() {
     fetchData();
   }, []);
 
-  const getCounterClick = (clicks, card) => {
-    console.log(`Card: ${card} Clicks: ${clicks}`);
+  const getCounterClick = (clicks, id) => {
+    data.filter((character) => {
+      if (character.id === id) {
+        character.clicks = clicks;
+      } else return character;
+    });
+    console.log(data);
   };
 
   if (loading) {
