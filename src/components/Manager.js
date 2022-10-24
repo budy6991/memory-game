@@ -7,6 +7,8 @@ function Manager() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [length, setLength] = useState(12);
+  const [score, setScore] = useState(0);
+  const [record, setRecord] = useState(0);
 
   useEffect(() => {
     const randomCharacters = Array.from({ length: length }, () =>
@@ -28,13 +30,17 @@ function Manager() {
     fetchData();
   }, []);
 
+  const getCounterClick = (clicks, card) => {
+    console.log(`Card: ${card} Clicks: ${clicks}`);
+  };
+
   if (loading) {
     return <LoadingPage />;
   } else
     return (
       <div>
-        <NavBar />
-        <DisplayCharacters characters={data} />
+        <NavBar score={score} record={record} />
+        <DisplayCharacters characters={data} clickCounter={getCounterClick} />
       </div>
     );
 }
