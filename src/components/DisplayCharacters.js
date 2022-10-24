@@ -1,7 +1,7 @@
 import React from "react";
 import CharacterCard from "./CharacterCard";
 
-function DisplayCharacters({ characters, clickCounter }) {
+function DisplayCharacters({ characters, clickCheck }) {
   const charactersCard = characters.map((character) => {
     return (
       <CharacterCard
@@ -9,8 +9,7 @@ function DisplayCharacters({ characters, clickCounter }) {
         image={character.image}
         key={character.id}
         id={character.id}
-        clickCounter={clickCounter}
-        clicks={character.clicks}
+        clickCheck={clickCheck}
       />
     );
   });

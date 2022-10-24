@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from "react";
 
-function CharacterCard({ name, image, clickCounter, id }) {
-  const [counter, setCounter] = useState(0);
+function CharacterCard({ name, image, clickCheck, id }) {
+  const [clicked, setClicked] = useState(false);
 
-  const increaseCounter = () => {
-    setCounter(counter + 1);
+  const toggleClick = () => {
+    if (clicked === true) {
+      setClicked(false);
+    } else if (clicked === false) {
+      setClicked(true);
+    }
   };
 
   useEffect(() => {
-    increaseCounter();
+    toggleClick();
   }, []);
 
   return (
     <button
       className="m-2 hover:scale-90 transition-all h-fit w-fit"
       onClick={() => {
-        increaseCounter();
-        clickCounter(counter, id);
+        toggleClick();
+        clickCheck(clicked, id);
       }}
     >
       <img src={image} className="rounded-lg"></img>

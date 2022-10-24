@@ -16,7 +16,7 @@ function Manager() {
         name: character.name,
         image: character.image,
         id: character.id,
-        clicks: 0,
+        clicked: false,
       };
     });
   };
@@ -25,27 +25,8 @@ function Manager() {
     setData(data.sort(() => 0.5 - Math.random()));
   };
 
-  const getCounterClick = (clicks, id) => {
-    setData(
-      data.filter((character) => {
-        if (character.id === id) {
-          character.clicks = clicks;
-        }
-        return character;
-      })
-    );
-  };
-
-  const checkForClicks = () => {
-    data.map((character) => {
-      if (character.clicks <= 1) {
-        setScore(score + 1);
-      } else if (character.clicks > 1) {
-        setScore(0);
-        return (character.clicks = 0);
-      }
-      return character;
-    });
+  const clickCheck = (clicked, id) => {
+    console.log(clicked, id);
   };
 
   useEffect(() => {
@@ -70,8 +51,6 @@ function Manager() {
 
   useEffect(() => {
     shuffleArray();
-    checkForClicks();
-    console.log(data);
   }, [data]);
 
   if (loading) {
@@ -80,7 +59,7 @@ function Manager() {
     return (
       <div>
         <NavBar score={score} record={record} />
-        <DisplayCharacters characters={data} clickCounter={getCounterClick} />
+        <DisplayCharacters characters={data} clickCheck={clickCheck} />
       </div>
     );
 }
