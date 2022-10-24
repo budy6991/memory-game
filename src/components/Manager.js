@@ -6,7 +6,7 @@ import LoadingPage from "./LoadingPage";
 function Manager() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
-  const [length, setLength] = useState(6);
+  const [length, setLength] = useState(5);
   const [score, setScore] = useState(0);
   const [record, setRecord] = useState(0);
 
@@ -26,7 +26,26 @@ function Manager() {
   };
 
   const clickCheck = (clicked, id) => {
-    console.log(clicked, id);
+    setData(
+      data.map((character) => {
+        if (character.id === id) {
+          character.clicked = clicked;
+        }
+        return character;
+      })
+    );
+  };
+
+  const checkClicks = () => {
+    const truthy = data.every((character) => character.clicked === true);
+    console.log(truthy);
+    if (truthy) {
+      levelUp();
+    }
+  };
+
+  const levelUp = () => {
+    setLength(length + 1);
   };
 
   useEffect(() => {
@@ -47,10 +66,10 @@ function Manager() {
     };
 
     fetchData();
-  }, []);
+  }, [length]);
 
   useEffect(() => {
-    shuffleArray();
+    checkClicks();
   }, [data]);
 
   if (loading) {
