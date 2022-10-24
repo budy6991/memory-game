@@ -10,6 +10,7 @@ function DisplayCharacters({ characters, clickCounter }) {
         key={character.id}
         id={character.id}
         clickCounter={clickCounter}
+        clicks={character.clicks}
       />
     );
   });

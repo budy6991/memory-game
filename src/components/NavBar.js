@@ -7,6 +7,9 @@ function NavBar({ score, record }) {
         <h2>Record: {record}</h2>
       </div>
       <div>
+        <h1 className="font-bold text-xl">MEMORY CARD</h1>
+      </div>
+      <div>
         <h2>Score: {score} </h2>
       </div>
     </div>

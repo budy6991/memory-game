@@ -3,13 +3,13 @@ import React, { useEffect, useState } from "react";
 function CharacterCard({ name, image, clickCounter, id }) {
   const [counter, setCounter] = useState(0);
 
-  useEffect(() => {
-    increaseCounter();
-  }, []);
-
   const increaseCounter = () => {
     setCounter(counter + 1);
   };
+
+  useEffect(() => {
+    increaseCounter();
+  }, []);
 
   return (
     <button
