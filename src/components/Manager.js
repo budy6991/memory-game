@@ -10,8 +10,6 @@ function Manager() {
   const [score, setScore] = useState(0);
   const [record, setRecord] = useState(0);
 
-  // If a card has been clicked more than twice, restart the game.
-
   useEffect(() => {
     const randomCharacters = Array.from({ length: length }, () =>
       Math.floor(Math.random() * 826)
