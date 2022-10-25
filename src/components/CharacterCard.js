@@ -17,7 +17,7 @@ function CharacterCard({ name, image, clickCheck, id }) {
 
   return (
     <button
-      className="m-2 hover:scale-90 transition-all h-fit w-fit"
+      className="m-2 hover:scale-90 transition-all "
       onClick={() => {
         toggleClick();
         clickCheck(clicked, id);

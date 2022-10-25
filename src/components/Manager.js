@@ -40,7 +40,6 @@ function Manager() {
         if (character.id === id) {
           character.clicked = clicked;
           if (character.clicked) {
-            // shuffleArray();
             setScore(score + 1);
           } else {
             setScore(0);
@@ -86,13 +85,14 @@ function Manager() {
   useEffect(() => {
     checkClicks();
     handleScoreHistory();
+    shuffleArray();
   }, [data]);
 
   if (loading) {
     return <LoadingPage />;
   } else
     return (
-      <div>
+      <div className="h-full w-full flex flex-col items-center  bg-gradient-to-b from-green-rick to-yellow-rick">
         <NavBar score={score} record={record} />
         <DisplayCharacters characters={data} clickCheck={clickCheck} />
       </div>

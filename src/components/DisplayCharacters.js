@@ -13,7 +13,7 @@ function DisplayCharacters({ characters, clickCheck }) {
       />
     );
   });
-  return <div className="h-fit w-fit">{charactersCard};</div>;
+  return <div>{charactersCard};</div>;
 }
 
 export default DisplayCharacters;
