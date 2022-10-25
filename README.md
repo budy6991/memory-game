@@ -1,6 +1,6 @@
 # Rick and Morty Memory Card Game
 
-<img src='./rick-and-morty-memory-game'>
+<img src='./rick-and-morty-memory-game.png'>
 
 Simple memory card game of Rick and Morty, creatd using React.js and CSS Tailwind
 
