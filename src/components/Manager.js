@@ -21,6 +21,8 @@ function Manager() {
     });
   };
 
+  // If clicked is true, setScore to +1
+
   const shuffleArray = () => {
     setData(data.sort(() => 0.5 - Math.random()));
   };
@@ -30,6 +32,11 @@ function Manager() {
       data.map((character) => {
         if (character.id === id) {
           character.clicked = clicked;
+          if (character.clicked) {
+            setScore(score + 1);
+          } else {
+            setScore(0);
+          }
         }
         return character;
       })
@@ -37,9 +44,8 @@ function Manager() {
   };
 
   const checkClicks = () => {
-    const truthy = data.every((character) => character.clicked === true);
-    console.log(truthy);
-    if (truthy) {
+    const passedAll = data.every((character) => character.clicked === true);
+    if (passedAll) {
       levelUp();
     }
   };
