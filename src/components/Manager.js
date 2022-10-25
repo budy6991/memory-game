@@ -9,6 +9,7 @@ function Manager() {
   const [length, setLength] = useState(5);
   const [score, setScore] = useState(0);
   const [record, setRecord] = useState(0);
+  const [scoreHistory, setScoreHistory] = useState([]);
 
   const normalizeData = (data) => {
     return data.map((character) => {
@@ -25,6 +26,12 @@ function Manager() {
 
   const shuffleArray = () => {
     setData(data.sort(() => 0.5 - Math.random()));
+  };
+
+  const handleScoreHistory = () => {
+    setScoreHistory(scoreHistory.concat(score));
+    const highestScore = Math.max(...scoreHistory);
+    setRecord(highestScore);
   };
 
   const clickCheck = (clicked, id) => {
@@ -78,6 +85,7 @@ function Manager() {
 
   useEffect(() => {
     checkClicks();
+    handleScoreHistory();
   }, [data]);
 
   if (loading) {
