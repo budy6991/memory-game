@@ -33,9 +33,11 @@ function Manager() {
         if (character.id === id) {
           character.clicked = clicked;
           if (character.clicked) {
+            // shuffleArray();
             setScore(score + 1);
           } else {
             setScore(0);
+            setLength(5);
           }
         }
         return character;
